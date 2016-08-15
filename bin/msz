@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+'use strict'
+// 定义脚手架的文件路径
+process.env.NODE_PATH = __dirname + '/../node_modules/'
+
+const program = require('commander')
+
+const pak = require('../package')
+
+const actionAdd = require('../command/add')
+const actionInit = require('../command/init')
+const actionList = require('../command/list')
+const actionDelete = require('../command/delete')
+
+// 定义当前版本
+program.version(pak.version)
+
+// 定义使用方法
+program.usage('<command>')
+
+program
+    .command('add')
+    .description('Add a new template')
+    .alias('a')
+    .action(() => actionAdd())
+
+program
+    .command('init')
+    .description('Generate a new project')
+    .alias('i')
+    .action(() => actionInit())
+
+program
+    .command('list')
+    .description('List all the template')
+    .alias('l')
+    .action(() => actionList())
+
+program
+    .command('delete')
+    .description('Delete a template')
+    .alias('d')
+    .action(() => actionDelete())
+
+program.parse(process.argv)
+if (!program.args.length) {
+    program.help()
+}

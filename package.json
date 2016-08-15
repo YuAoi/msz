@@ -1,0 +1,23 @@
+{
+  "name": "msz",
+  "version": "0.0.1",
+  "description": "msz",
+  "main": "./bin/msz",
+  "bin": {
+    "msz": "bin/msz"
+  },
+  "scripts": {
+    "test": "node ./bin/msz"
+  },
+  "keywords": [
+    "msz"
+  ],
+  "author": "msz",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.9.0"
+  }
+}
